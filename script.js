@@ -137,6 +137,11 @@ function filterBooks(category) {
                     behavior: 'smooth',
                     block: 'start'
                 });
+
+                // Clean the URL hash if it was added
+                if (window.history.pushState) {
+                    window.history.pushState('', document.title, window.location.pathname);
+                }
             }
         });
     });
