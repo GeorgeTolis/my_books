@@ -61,7 +61,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo / Title -->
-                <a href="#about" class="flex items-center gap-3 group">
+                <button type="button" data-target="#about" class="nav-link flex items-center gap-3 group text-left cursor-pointer">
                     <div class="w-10 h-10 rounded-full bg-terracotta-500/10 flex items-center justify-center text-terracotta-600 group-hover:bg-terracotta-500 group-hover:text-white transition-all duration-300">
                         <i data-lucide="book-open" class="w-5 h-5"></i>
                     </div>
@@ -69,32 +69,29 @@
                         <span class="font-heading font-bold text-xl tracking-wider text-warmInk block">GEORGE TOLIS</span>
                         <span class="text-xs font-sans text-mutedInk tracking-widest uppercase block -mt-1">Author Library</span>
                     </div>
-                </a>
+                </button>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <button data-target="#about" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Welcome</button>
-                    <button data-target="#books" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Book Collection</button>
-                    <button data-target="#roadmap" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Annual Progress</button>
-                    <button data-target="#translations" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Language Note</button>
+                    <button type="button" data-target="#about" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Welcome</button>
+                    <button type="button" data-target="#books" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Book Collection</button>
+                    <button type="button" data-target="#roadmap" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Annual Progress</button>
+                    <button type="button" data-target="#translations" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Language Note</button>
                 </nav>
 
-                <!-- Mobile Menu -->
-                <div id="mobile-menu" class="hidden md:hidden bg-warmPaper border-b border-parchment px-4 pt-2 pb-6 space-y-3">
-                    <button data-target="#about" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Welcome</button>
-                    <button data-target="#books" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Book Collection</button>
-                    <button data-target="#roadmap" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Annual Progress</button>
-                    <button data-target="#translations" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Language Note</button>
-                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-md text-warmInk hover:text-terracotta-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-warmPaper border-b border-parchment px-4 pt-2 pb-6 space-y-3">
-            <a href="#about" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Welcome</a>
-            <a href="#books" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Book Collection</a>
-            <a href="#roadmap" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Annual Progress</a>
-            <a href="#translations" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Language Note</a>
+            <button type="button" data-target="#about" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Welcome</button>
+            <button type="button" data-target="#books" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Book Collection</button>
+            <button type="button" data-target="#roadmap" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Annual Progress</button>
+            <button type="button" data-target="#translations" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Language Note</button>
         </div>
     </header>
 
@@ -241,9 +238,9 @@
                     <p class="text-xs text-cream/70 mt-1">Self-published stories, personal journeys.</p>
                 </div>
                 <div class="flex items-center gap-6 text-sm text-cream/80">
-                    <button type="button" data-target="#about" class="nav-link hover:text-goldAccent transition-colors bg-transparent">Home</button>
-                    <button type="button" data-target="#books" class="nav-link hover:text-goldAccent transition-colors bg-transparent">Books</button>
-                    <button type="button" data-target="#roadmap" class="nav-link hover:text-goldAccent transition-colors bg-transparent">Progress</button>
+                    <button type="button" data-target="#about" class="nav-link hover:text-goldAccent transition-colors bg-transparent cursor-pointer">Home</button>
+                    <button type="button" data-target="#books" class="nav-link hover:text-goldAccent transition-colors bg-transparent cursor-pointer">Books</button>
+                    <button type="button" data-target="#roadmap" class="nav-link hover:text-goldAccent transition-colors bg-transparent cursor-pointer">Progress</button>
                 </div>
             </div>
             

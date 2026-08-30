@@ -120,24 +120,9 @@ function renderBooks(booksToRender) {
 
 // Filter Functionality
 function filterBooks(category) {
-    document.querySelectorAll('.nav-link').forEach(button => {
-        button.addEventListener('click', function () {
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                // Close mobile menu if open
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-                
-                // Scroll smoothly to target without touching the URL
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-terracotta-600', 'text-white', 'shadow-sm');
+        btn.classList.add('text-warmInk');
     });
 
     const activeBtn = document.getElementById(`btn-${category}`);
@@ -275,6 +260,27 @@ window.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('hidden');
         });
     }
+
+    // Smooth Scroll Navigation Handler (No URL Hash Modification)
+    document.querySelectorAll('.nav-link').forEach(button => {
+        button.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Scroll smoothly to target section
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
     // Attach filter button listeners
     const btnAll = document.getElementById('btn-all');
