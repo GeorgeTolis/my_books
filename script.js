@@ -2,50 +2,50 @@
 const books = [
     {
         id: 'book-1',
-        title: 'Echoes of Late September',
-        greekTitle: 'Ηχώ του Ύστερου Σεπτέμβρη',
-        year: 2024,
-        season: 'Early Autumn 2024',
-        genre: 'Emotional Drama / Fiction',
-        pages: 180,
+        title: 'Spark Thoughts',
+        greekTitle: 'Σπαρκ Θοτς',
+        year: 2025,
+        season: 'Autumn 2025',
+        genre: 'Fantasy / Thriller',
+        pages: 301,
         language: 'Greek (Original)',
         hasEnglish: false,
-        synopsis: 'A story reflecting on hidden feelings and quiet moments kept away from the world. Written during late summer to express inner emotions indirectly through character journeys.',
+        synopsis: 'A story for overthinkers. The story follows a man that tries to answer two questions about his life, which happen to be his father\'s last words. Joining the Special Agency, his friends will help him through the tough times',
         coverColor: 'from-amber-800 to-amber-950',
         accentColor: 'text-amber-700',
         status: 'Completed',
-        pdfLink: '#'
+        pdfLink: 'spark_thoughts/spark_thoughts.pdf'
     },
     {
         id: 'book-2',
-        title: 'Whispers Beneath the Sun',
-        greekTitle: 'Ψίθυροι Κάτω από τον Ήλιο',
-        year: 2025,
-        season: 'Summer 2025',
-        genre: 'Philosophical Realism',
-        pages: 210,
+        title: 'Sides of the Same Coin',
+        greekTitle: 'Πλευρές του Ίδιου Νομίσματος',
+        year: 2026,
+        season: 'Summer 2026',
+        genre: 'Military / Literary Fiction',
+        pages: 148,
         language: 'Greek (Original)',
         hasEnglish: false,
-        synopsis: 'Explores personal reflections and hidden feelings under the bright Greek summer skies. A journey of quiet self-realization.',
+        synopsis: 'Explores a fictional war between aristocrats and the revolution. Our protagonist, a revolutionary, is sent to complete the general\'s "Plan" to end the war in an aristocrat household. Will he be able to push through?',
         coverColor: 'from-terracotta-600 to-terracotta-700',
         accentColor: 'text-terracotta-600',
         status: 'Completed',
-        pdfLink: '#'
+        pdfLink: 'sides_of_the_same_coin/sides_of_the_same_coin.pdf'
     },
     {
         id: 'book-3',
-        title: 'Project 2026 (Upcoming Story)',
-        greekTitle: 'Έργο 2026 (Υπό Εξέλιξη)',
-        year: 2026,
+        title: 'Great Pretender',
+        greekTitle: 'Ο Μέγας Υποκριτής',
+        year: 2027,
         season: 'Late Summer 2026 Target',
-        genre: 'Personal Narrative',
-        pages: 'In Progress',
+        genre: 'Drana / Romance',
+        pages: '-',
         language: 'Greek (Original)',
         hasEnglish: false,
-        synopsis: 'Currently in progress. This story will represent the feelings and experiences of this year, planned for completion in early autumn 2026.',
+        synopsis: 'This story will follow a young adult lying his way through life. This works for him until he meets someone he is not able to lie to, someone who can see through his mask, someone who changes him with her actions',
         coverColor: 'from-sage-700 to-slate-900',
         accentColor: 'text-sage-700',
-        status: 'In Progress',
+        status: 'Upcoming',
         pdfLink: null
     }
 ];
@@ -225,8 +225,12 @@ function openModal(bookId) {
 
                 <div class="pt-4 flex gap-3">
                     ${book.pdfLink ? `
-                        <a href="${book.pdfLink}" class="flex-1 bg-terracotta-600 text-white text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-terracotta-700 transition-all shadow-sm">
-                            Read Story (PDF)
+                        <a href="${book.pdfLink}" 
+                        download 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="flex-1 bg-terracotta-600 text-white text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-terracotta-700 transition-all shadow-sm">
+                            Download / Read Story (PDF)
                         </a>
                     ` : `
                         <button disabled class="flex-1 bg-parchment text-mutedInk text-center py-2.5 rounded-xl text-sm font-semibold cursor-not-allowed">
