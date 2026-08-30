@@ -10,7 +10,7 @@ one other and their purpose is for me to express my feelings that
 I keep hidden from the outside world in an indirect way. If at least
 one of my stories moves you, then my goal is accomplished. 
 
-# Warning for non Greeks
+# Warning for non greek speakers
 
 I am greek, so my books' original languages are also greek, because I think
 it is the language that I can express myself best in. As of writing this,
