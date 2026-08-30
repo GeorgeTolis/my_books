@@ -62,6 +62,7 @@ const books = [
 ];
 
 // Render Books Grid
+// Render Books Grid
 function renderBooks(booksToRender) {
     const grid = document.getElementById('books-grid');
     if (!grid) return;
@@ -71,7 +72,7 @@ function renderBooks(booksToRender) {
         grid.innerHTML = `
             <div class="col-span-full text-center py-12 text-mutedInk">
                 <i data-lucide="book-x" class="w-12 h-12 mx-auto text-parchment mb-3"></i>
-                <p class="text-lg font-serif">No books found matching your criteria.</p>
+                <p class="text-lg font-serif">${currentLanguage === 'el' ? 'Δεν βρέθηκαν βιβλία με αυτά τα κριτήρια.' : 'No books found matching your criteria.'}</p>
             </div>
         `;
         lucide.createIcons();
@@ -105,10 +106,11 @@ function renderBooks(booksToRender) {
                 <div class="space-y-2">
                     <div class="flex items-center justify-between text-xs text-mutedInk">
                         <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> ${book.season}</span>
-                        <span class="flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> ${book.pages} pages</span>
+                        <span class="flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> ${book.pages} ${currentLanguage === 'el' ? 'σελίδες' : 'pages'}</span>
                     </div>
+                    <!-- Display active language preview -->
                     <p class="text-xs text-mutedInk line-clamp-2 leading-relaxed">
-                        ${book.synopsis.en}
+                        ${book.synopsis[currentLanguage] || book.synopsis.en}
                     </p>
                 </div>
             </div>
@@ -118,7 +120,7 @@ function renderBooks(booksToRender) {
                     ${book.hasEnglish ? '🇬🇷 GR / 🇬🇧 EN' : '🇬🇷 GR Original'}
                 </span>
                 <span class="text-xs font-bold ${book.accentColor} group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                    Read Details <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                    ${currentLanguage === 'el' ? 'Λεπτομέρειες' : 'Read Details'} <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </span>
             </div>
         `;
@@ -195,7 +197,8 @@ function renderTimeline() {
 // Helper for switching between en and gr
 function switchLanguage(bookId, lang) {
     currentLanguage = lang;
-    openModal(bookId); // Re-render modal content with active language selection
+    openModal(bookId);     // Update modal text
+    renderBooks(books);   // Update grid card previews
 }
 
 // Modal Handlers
@@ -223,8 +226,8 @@ function openModal(bookId) {
                         <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
                     </div>
 
-                    <!-- Language Switcher Pill -->
-                    <div class="flex bg-warmPaper p-1 rounded-lg border border-parchment text-xs font-semibold flex-shrink-0">
+                    <!-- Language Switcher Pill (Pushed left with mr-8/mr-10 to avoid close button collision) -->
+                    <div class="flex bg-warmPaper p-1 rounded-lg border border-parchment text-xs font-semibold flex-shrink-0 mr-8 sm:mr-10">
                         <button onclick="switchLanguage('${book.id}', 'en')" class="px-2.5 py-1 rounded-md transition-all ${currentLanguage === 'en' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
                             EN
                         </button>
@@ -243,7 +246,7 @@ function openModal(bookId) {
 
                 <div>
                     <h4 class="text-xs font-bold uppercase text-mutedInk mb-1">
-                        ${currentLanguage === 'el' ? 'Σχετικα με την ιστορια' : 'About this story'}
+                        ${currentLanguage === 'el' ? 'Σχετικά με την ιστορία' : 'About this story'}
                     </h4>
                     <p class="text-sm text-warmInk leading-relaxed transition-all duration-200">
                         ${book.synopsis[currentLanguage] || book.synopsis.en}
