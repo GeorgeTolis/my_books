@@ -20,12 +20,12 @@ find time to do this. Nevertheless, when english versions drop, I will
 make appropriate changes to this repository. 
 
 
-### Note for self
+### Note to self
 
 To compile LaTeX files use:
 
 ```bash
-$ tectonic file.text
+$ tectonic file.tex
 ```
 
 and it will spit out file.pdf for you
