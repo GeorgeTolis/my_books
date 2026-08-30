@@ -202,6 +202,7 @@ function switchLanguage(bookId, lang) {
 }
 
 // Modal Handlers
+// Modal Handlers
 function openModal(bookId) {
     const book = books.find(b => b.id === bookId);
     if (!book) return;
@@ -209,6 +210,7 @@ function openModal(bookId) {
     const modalContent = document.getElementById('modal-content');
     modalContent.innerHTML = `
         <div class="flex flex-col md:flex-row gap-6 items-start">
+            <!-- Book Cover -->
             <div class="w-full md:w-48 h-64 bg-gradient-to-br ${book.coverColor} rounded-xl book-shadow flex-shrink-0 p-5 text-white flex flex-col justify-between relative overflow-hidden">
                 <div class="book-spine absolute left-0 top-0 bottom-0 w-3"></div>
                 <span class="text-xs bg-white/20 px-2 py-0.5 rounded uppercase font-semibold w-max">${book.year}</span>
@@ -218,36 +220,41 @@ function openModal(bookId) {
                 </div>
             </div>
 
+            <!-- Content Area -->
             <div class="space-y-4 flex-grow w-full">
-                <div class="flex justify-between items-start gap-4">
-                    <div>
-                        <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest">${book.season}</span>
-                        <h2 class="font-serif text-2xl font-bold text-warmInk">${book.title}</h2>
-                        <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
-                    </div>
-
-                    <!-- Language Switcher Pill (Pushed left with mr-8/mr-10 to avoid close button collision) -->
-                    <div class="flex bg-warmPaper p-1 rounded-lg border border-parchment text-xs font-semibold flex-shrink-0 mr-8 sm:mr-10">
-                        <button onclick="switchLanguage('${book.id}', 'en')" class="px-2.5 py-1 rounded-md transition-all ${currentLanguage === 'en' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
-                            EN
-                        </button>
-                        <button onclick="switchLanguage('${book.id}', 'el')" class="px-2.5 py-1 rounded-md transition-all ${currentLanguage === 'el' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
-                            GR
-                        </button>
-                    </div>
+                <!-- Header (pr-10 leaves guaranteed space for absolute close X button) -->
+                <div class="pr-10">
+                    <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest">${book.season}</span>
+                    <h2 class="font-serif text-2xl font-bold text-warmInk">${book.title}</h2>
+                    <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
                 </div>
 
+                <!-- Specs Grid -->
                 <div class="grid grid-cols-2 gap-3 bg-warmPaper p-3 rounded-xl text-xs text-warmInk">
-                    <div><strong>Genre:</strong> ${book.genre}</div>
-                    <div><strong>Pages:</strong> ${book.pages}</div>
-                    <div><strong>Language:</strong> ${book.language}</div>
-                    <div><strong>English Status:</strong> ${book.hasEnglish ? 'Available' : 'Planned'}</div>
+                    <div><strong>${currentLanguage === 'el' ? 'Είδος:' : 'Genre:'}</strong> ${book.genre}</div>
+                    <div><strong>${currentLanguage === 'el' ? 'Σελίδες:' : 'Pages:'}</strong> ${book.pages}</div>
+                    <div><strong>${currentLanguage === 'el' ? 'Γλώσσα:' : 'Language:'}</strong> ${book.language}</div>
+                    <div><strong>${currentLanguage === 'el' ? 'Αγγλικά:' : 'English Status:'}</strong> ${book.hasEnglish ? (currentLanguage === 'el' ? 'Διαθέσιμο' : 'Available') : (currentLanguage === 'el' ? 'Προγραμματισμένο' : 'Planned')}</div>
                 </div>
 
+                <!-- Synopsis Header + Language Switcher Bar -->
                 <div>
-                    <h4 class="text-xs font-bold uppercase text-mutedInk mb-1">
-                        ${currentLanguage === 'el' ? 'Σχετικά με την ιστορία' : 'About this story'}
-                    </h4>
+                    <div class="flex items-center justify-between mb-2">
+                        <h4 class="text-xs font-bold uppercase text-mutedInk">
+                            ${currentLanguage === 'el' ? 'Σχετικά με την ιστορία' : 'About this story'}
+                        </h4>
+
+                        <!-- Dedicated Language Pill Switcher -->
+                        <div class="flex bg-warmPaper p-1 rounded-lg border border-parchment text-xs font-semibold">
+                            <button onclick="switchLanguage('${book.id}', 'en')" class="px-2.5 py-0.5 rounded-md transition-all ${currentLanguage === 'en' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
+                                EN
+                            </button>
+                            <button onclick="switchLanguage('${book.id}', 'el')" class="px-2.5 py-0.5 rounded-md transition-all ${currentLanguage === 'el' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
+                                GR
+                            </button>
+                        </div>
+                    </div>
+
                     <p class="text-sm text-warmInk leading-relaxed transition-all duration-200">
                         ${book.synopsis[currentLanguage] || book.synopsis.en}
                     </p>
@@ -262,7 +269,8 @@ function openModal(bookId) {
                     </div>
                 ` : ''}
 
-                <div class="pt-4 flex gap-3">
+                <!-- Action Button -->
+                <div class="pt-2 flex gap-3">
                     ${book.pdfLink ? `
                         <a href="${book.pdfLink}" 
                            download 
