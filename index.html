@@ -73,16 +73,19 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="#about" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Welcome</a>
-                    <a href="#books" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Book Collection</a>
-                    <a href="#roadmap" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Annual Progress</a>
-                    <a href="#translations" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Language Note</a>
+                    <button data-target="#about" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Welcome</button>
+                    <button data-target="#books" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Book Collection</button>
+                    <button data-target="#roadmap" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Annual Progress</button>
+                    <button data-target="#translations" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Language Note</button>
                 </nav>
 
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-md text-warmInk hover:text-terracotta-600 focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden bg-warmPaper border-b border-parchment px-4 pt-2 pb-6 space-y-3">
+                    <button data-target="#about" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Welcome</button>
+                    <button data-target="#books" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Book Collection</button>
+                    <button data-target="#roadmap" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Annual Progress</button>
+                    <button data-target="#translations" class="nav-link block w-text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent">Language Note</button>
+                </div>
             </div>
         </div>
 
@@ -238,9 +241,9 @@
                     <p class="text-xs text-cream/70 mt-1">Self-published stories, personal journeys.</p>
                 </div>
                 <div class="flex items-center gap-6 text-sm text-cream/80">
-                    <a href="#about" class="hover:text-goldAccent transition-colors">Home</a>
-                    <a href="#books" class="hover:text-goldAccent transition-colors">Books</a>
-                    <a href="#roadmap" class="hover:text-goldAccent transition-colors">Progress</a>
+                    <button type="button" data-target="#about" class="nav-link hover:text-goldAccent transition-colors bg-transparent">Home</button>
+                    <button type="button" data-target="#books" class="nav-link hover:text-goldAccent transition-colors bg-transparent">Books</button>
+                    <button type="button" data-target="#roadmap" class="nav-link hover:text-goldAccent transition-colors bg-transparent">Progress</button>
                 </div>
             </div>
             
