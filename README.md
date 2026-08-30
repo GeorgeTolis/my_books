@@ -4,16 +4,16 @@ This repository is meant to store all the books of the author
 George Tolis (that's me 0_0). If you stumble upon this repository
 by chance, first of all welcome to my world. Second, I hope you
 give my writing a chance. I have the goal of writing one new story
-every year, finishing it in the summer, maybe early autumn of the
+every year, finishing it in the summer, or maybe early autumn of the
 coresponding year. My stories are not connected in any way between
-eachother and their purpose is for me to express my feelings that
-I keep hidden from the outside world in an indirect way. If you like
-at least one of my stories, then my goal is reached. 
+one other and their purpose is for me to express my feelings that
+I keep hidden from the outside world in an indirect way. If at least
+one of my stories moves you, then my goal is accomplished. 
 
 # Warning for non Greeks
 
-I am greek, so my books' original languages are also greek, because
-I think I can express myselg best in that language. As of writing this,
+I am greek, so my books' original languages are also greek, because I think
+it is the language that I can express myself best in. As of writing this,
 I assure you there are plans to translate them to English, but I am
 focussing on my studies and work right now, so it is difficult for me to
 find time to do this. Nevertheless, when english versions drop, I will
