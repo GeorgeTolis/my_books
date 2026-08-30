@@ -1,4 +1,6 @@
-// Sample Books Data Structure
+// State management for selected modal language
+let currentLanguage = 'en';
+
 const books = [
     {
         id: 'book-1',
@@ -10,7 +12,10 @@ const books = [
         pages: 301,
         language: 'Greek (Original)',
         hasEnglish: false,
-        synopsis: 'A story for overthinkers. The story follows a man that tries to answer two questions about his life, which happen to be his father\'s last words. Joining the Special Agency, his friends will help him through the tough times',
+        synopsis: {
+            en: "A story for overthinkers. The story follows a man that tries to answer two questions about his life, which happen to be his father's last words. Joining the Special Agency, his friends will help him through the tough times.",
+            el: "Μια ιστορία για άτομα που υπεραναλύουν τα πάντα. Η ιστορία ακολουθεί έναν άνδρα που προσπαθεί να απαντήσει σε δύο ερωτήσεις για τη ζωή του, οι οποίες τυγχάνει να είναι τα τελευταία λόγια του πατέρα του. Μπαίνοντας στην Ειδική Υπηρεσία, οι φίλοι του θα προσπαθήσουν να τον βοηθήσουν στις δύσκολες στιγμές."
+        },
         coverColor: 'from-amber-800 to-amber-950',
         accentColor: 'text-amber-700',
         status: 'Completed',
@@ -26,7 +31,10 @@ const books = [
         pages: 148,
         language: 'Greek (Original)',
         hasEnglish: false,
-        synopsis: 'Explores a fictional war between aristocrats and the revolution. Our protagonist, a revolutionary, is sent to complete the general\'s "Plan" to end the war in an aristocrat household. Will he be able to push through?',
+        synopsis: {
+            en: "Explores a fictional war between aristocrats and the revolution. Our protagonist, a revolutionary, is sent to complete the general's \"Plan\" to end the war in an aristocrat household. Will he be able to complete it and end the war?",
+            el: "Εξερευνά έναν φανταστικό πόλεμο ανάμεσα σε αριστοκράτες και αντιστασιακούς. Ο πρωταγωνιστής μας, ένας αντιστασιακός, στέλνεται να ολοκληρώσει το \"Σχέδιο\" του στρατηγού σε ένα αρχοντικό αριστοκρατών. Θα τα καταφέρει να το ολοκληρώσει και να σταματήσει τον πόλεμο;"
+        },
         coverColor: 'from-terracotta-600 to-terracotta-700',
         accentColor: 'text-terracotta-600',
         status: 'Completed',
@@ -38,11 +46,14 @@ const books = [
         greekTitle: 'Ο Μέγας Υποκριτής',
         year: 2027,
         season: 'Late Summer 2026 Target',
-        genre: 'Drana / Romance',
+        genre: 'Drama / Romance',
         pages: '-',
         language: 'Greek (Original)',
         hasEnglish: false,
-        synopsis: 'This story will follow a young adult lying his way through life. This works for him until he meets someone he is not able to lie to, someone who can see through his mask, someone who changes him with her actions',
+        synopsis: {
+            en: "This story will follow a young adult lying his way through life. This works for him until he meets someone he is not able to lie to, someone who can see through his mask, someone who changes him with her actions.",
+            el: "Η ιστορία ακολουθεί έναν νεαρό ενήλικα που λέει ψέματα σε όλους στη ζωή του. Αυτό λειτουργεί μέχρι που συναντά κάποια στην οποία δεν μπορεί να πει ψέματα, κάποια η οποία μπορεί να δει πίσω από τη μάσκα του, κάποια που τον αλλάζει μέσω τον πράξεων της."
+        },
         coverColor: 'from-sage-700 to-slate-900',
         accentColor: 'text-sage-700',
         status: 'Upcoming',
@@ -97,7 +108,7 @@ function renderBooks(booksToRender) {
                         <span class="flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> ${book.pages} pages</span>
                     </div>
                     <p class="text-xs text-mutedInk line-clamp-2 leading-relaxed">
-                        ${book.synopsis}
+                        ${book.synopsis.en}
                     </p>
                 </div>
             </div>
@@ -146,7 +157,8 @@ function searchBooks() {
     const filtered = books.filter(b => 
         b.title.toLowerCase().includes(query) || 
         b.greekTitle.toLowerCase().includes(query) || 
-        b.synopsis.toLowerCase().includes(query) ||
+        b.synopsis.en.toLowerCase().includes(query) ||
+        b.synopsis.el.toLowerCase().includes(query) ||
         b.genre.toLowerCase().includes(query)
     );
     renderBooks(filtered);
@@ -172,12 +184,18 @@ function renderTimeline() {
                 </div>
                 <h4 class="font-serif font-bold text-lg text-warmInk">${book.title}</h4>
                 <p class="text-xs text-mutedInk italic mb-2">${book.greekTitle}</p>
-                <p class="text-xs text-warmInk/80 leading-relaxed">${book.synopsis}</p>
+                <p class="text-xs text-warmInk/80 leading-relaxed">${book.synopsis.en}</p>
             </div>
         `;
 
         container.appendChild(item);
     });
+}
+
+// Helper for switching between en and gr
+function switchLanguage(bookId, lang) {
+    currentLanguage = lang;
+    openModal(bookId); // Re-render modal content with active language selection
 }
 
 // Modal Handlers
@@ -197,11 +215,23 @@ function openModal(bookId) {
                 </div>
             </div>
 
-            <div class="space-y-4 flex-grow">
-                <div>
-                    <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest">${book.season}</span>
-                    <h2 class="font-serif text-2xl font-bold text-warmInk">${book.title}</h2>
-                    <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
+            <div class="space-y-4 flex-grow w-full">
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest">${book.season}</span>
+                        <h2 class="font-serif text-2xl font-bold text-warmInk">${book.title}</h2>
+                        <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
+                    </div>
+
+                    <!-- Language Switcher Pill -->
+                    <div class="flex bg-warmPaper p-1 rounded-lg border border-parchment text-xs font-semibold flex-shrink-0">
+                        <button onclick="switchLanguage('${book.id}', 'en')" class="px-2.5 py-1 rounded-md transition-all ${currentLanguage === 'en' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
+                            EN
+                        </button>
+                        <button onclick="switchLanguage('${book.id}', 'el')" class="px-2.5 py-1 rounded-md transition-all ${currentLanguage === 'el' ? 'bg-terracotta-600 text-white shadow-sm' : 'text-mutedInk hover:text-warmInk'}">
+                            GR
+                        </button>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3 bg-warmPaper p-3 rounded-xl text-xs text-warmInk">
@@ -212,29 +242,35 @@ function openModal(bookId) {
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-bold uppercase text-mutedInk mb-1">About this story</h4>
-                    <p class="text-sm text-warmInk leading-relaxed">${book.synopsis}</p>
+                    <h4 class="text-xs font-bold uppercase text-mutedInk mb-1">
+                        ${currentLanguage === 'el' ? 'Σχετικα με την ιστορια' : 'About this story'}
+                    </h4>
+                    <p class="text-sm text-warmInk leading-relaxed transition-all duration-200">
+                        ${book.synopsis[currentLanguage] || book.synopsis.en}
+                    </p>
                 </div>
 
                 ${!book.hasEnglish ? `
                     <div class="p-3 bg-terracotta-50 text-terracotta-700 text-xs rounded-xl flex items-center gap-2 border border-terracotta-100">
                         <i data-lucide="info" class="w-4 h-4 flex-shrink-0"></i>
-                        <span>English translation for this title is planned once time permits around studies and work.</span>
+                        <span>${currentLanguage === 'el' 
+                            ? 'Η αγγλική μετάφραση σχεδιάζεται μόλις το επιτρέψει ο χρόνος παράλληλα με τις σπουδές και την εργασία.' 
+                            : 'English translation for this title is planned once time permits around studies and work.'}</span>
                     </div>
                 ` : ''}
 
                 <div class="pt-4 flex gap-3">
                     ${book.pdfLink ? `
                         <a href="${book.pdfLink}" 
-                        download 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        class="flex-1 bg-terracotta-600 text-white text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-terracotta-700 transition-all shadow-sm">
-                            Download / Read Story (PDF)
+                           download 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="flex-1 bg-terracotta-600 text-white text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-terracotta-700 transition-all shadow-sm">
+                            ${currentLanguage === 'el' ? 'Λήψη / Ανάγνωση (PDF)' : 'Download / Read Story (PDF)'}
                         </a>
                     ` : `
                         <button disabled class="flex-1 bg-parchment text-mutedInk text-center py-2.5 rounded-xl text-sm font-semibold cursor-not-allowed">
-                            Work in Progress
+                            ${currentLanguage === 'el' ? 'Σε εξέλιξη' : 'Work in Progress'}
                         </button>
                     `}
                 </div>
