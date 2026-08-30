@@ -120,10 +120,9 @@ function renderBooks(booksToRender) {
 
 // Filter Functionality
 function filterBooks(category) {
-    document.querySelectorAll('header a[href^="#"], #mobile-menu a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
+    document.querySelectorAll('.nav-link').forEach(button => {
+        button.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
@@ -132,16 +131,11 @@ function filterBooks(category) {
                     mobileMenu.classList.add('hidden');
                 }
                 
-                // Scroll smoothly to target
+                // Scroll smoothly to target without touching the URL
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
-
-                // Clean the URL hash if it was added
-                if (window.history.pushState) {
-                    window.history.pushState('', document.title, window.location.pathname);
-                }
             }
         });
     });
