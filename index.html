@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Tolis | Personal Book Collection</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-cream text-warmInk font-sans antialiased selection:bg-terracotta-100 selection:text-terracotta-700 min-h-screen flex flex-col custom-scrollbar">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-parchment/80 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Title -->
+                <a href="#about" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-terracotta-500/10 flex items-center justify-center text-terracotta-600 group-hover:bg-terracotta-500 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-xl tracking-wider text-warmInk block">GEORGE TOLIS</span>
+                        <span class="text-xs font-sans text-mutedInk tracking-widest uppercase block -mt-1">Author Library</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#about" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Welcome</a>
+                    <a href="#books" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Book Collection</a>
+                    <a href="#roadmap" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Annual Progress</a>
+                    <a href="#translations" class="text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500">Language Note</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#books" class="px-5 py-2.5 rounded-full bg-terracotta-600 text-white text-sm font-medium hover:bg-terracotta-700 transition-all shadow-sm hover:shadow-md flex items-center gap-2">
+                        <span>Browse Books</span>
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-md text-warmInk hover:text-terracotta-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-warmPaper border-b border-parchment px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Welcome</a>
+            <a href="#books" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Book Collection</a>
+            <a href="#roadmap" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Annual Progress</a>
+            <a href="#translations" class="block py-2 text-base font-medium text-warmInk hover:text-terracotta-600">Language Note</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+        
+        <!-- Hero & Welcome Section -->
+        <section id="about" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-cream via-warmPaper to-cream">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-sage-100/50 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-terracotta-50/80 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Welcome Card -->
+                <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-10 md:p-12 border border-parchment shadow-xl shadow-warmInk/5 relative">
+                    <div class="absolute -top-6 left-8 sm:left-12 bg-goldAccent text-warmInk px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        Welcome to My Library
+                    </div>
+
+                    <div class="mt-2 mb-8">
+                        <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-warmInk leading-tight">
+                            Stories Written from the Heart
+                        </h1>
+                        <div class="w-20 h-1 bg-terracotta-500 rounded-full mt-4"></div>
+                    </div>
+
+                    <!-- Introductory Text -->
+                    <div class="prose prose-lg text-warmInk/90 leading-relaxed font-sans space-y-4">
+                        <p class="text-lg sm:text-xl font-serif text-warmInk italic">
+                            "This website is meant to store all the books of the author George Tolis (that's me 0_0)."
+                        </p>
+                        <p>
+                            If you stumble upon this website by chance, first of all welcome to my world. Second, I hope you give my writing a chance.
+                        </p>
+                        <p>
+                            I have the goal of writing one new story every year, finishing it in the summer, or maybe early autumn of the corresponding year. My stories are not connected in any way between one another and their purpose is for me to express my feelings that I keep hidden from the outside world in an indirect way.
+                        </p>
+                        <p class="font-medium text-terracotta-700 bg-terracotta-50/60 p-4 rounded-xl border-l-4 border-terracotta-500">
+                            If at least one of my stories moves you, then my goal is accomplished.
+                        </p>
+                    </div>
+
+                    <!-- Author Badge -->
+                    <div class="mt-8 pt-6 border-t border-parchment flex items-center justify-between flex-wrap gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-parchment flex items-center justify-center font-serif font-bold text-lg text-warmInk border border-goldAccent/30">
+                                GT
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-warmInk leading-none">George Tolis</h3>
+                                <span class="text-xs text-mutedInk">Author & Storyteller</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-medium text-sage-700 bg-sage-100 px-3 py-1.5 rounded-full">
+                            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+                            Annual Goal: 1 Story / Year
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warning Section (Non-Greek Speakers) -->
+                <div id="translations" class="mt-12 bg-warmPaper/90 rounded-2xl p-6 sm:p-8 border border-parchment shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-terracotta-100 rounded-xl text-terracotta-600 flex-shrink-0 mt-1">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <div class="space-y-3">
+                            <h2 class="font-serif text-xl sm:text-2xl font-bold text-warmInk flex items-center gap-2">
+                                Warning for non Greek speakers
+                            </h2>
+                            <div class="text-mutedInk leading-relaxed space-y-3 text-sm sm:text-base">
+                                <p>
+                                    I am Greek, so my books' original languages are also Greek, because I think it is the language that I can express myself best in.
+                                </p>
+                                <p>
+                                    As of writing this, I assure you there are plans to translate them to English, but I am focussing on my studies and work right now, so it is difficult for me to find time to do this. Nevertheless, when English versions drop, I will make appropriate changes to this website.
+                                </p>
+                            </div>
+                            <div class="pt-2 flex items-center gap-2 text-xs font-semibold text-terracotta-600 uppercase tracking-wider">
+                                <i data-lucide="languages" class="w-4 h-4"></i>
+                                Translations Status: In Planning Phase
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Book Collection Section -->
+        <section id="books" class="py-16 sm:py-24 bg-cream">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-warmInk">The Book Collection</h2>
+                    <p class="text-mutedInk mt-3">Explore the independent stories written year by year. Click on any book to read more or view details.</p>
+                </div>
+
+                <!-- Filters & Search Bar -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 bg-warmPaper p-4 rounded-2xl border border-parchment">
+                    <!-- Filter Tabs -->
+                    <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
+                        <button id="btn-all" class="filter-btn active px-4 py-2 rounded-xl text-sm font-medium transition-all bg-terracotta-600 text-white shadow-sm">
+                            All Books
+                        </button>
+                        <button id="btn-greek" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium text-warmInk hover:bg-parchment transition-all">
+                            Available in Greek 🇬🇷
+                        </button>
+                        <button id="btn-english" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium text-warmInk hover:bg-parchment transition-all">
+                            English Translations 🇬🇧
+                        </button>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-64">
+                        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-mutedInk"></i>
+                        <input type="text" id="search-input" placeholder="Search titles or themes..." class="w-full pl-9 pr-4 py-2 bg-cream border border-parchment rounded-xl text-sm text-warmInk focus:outline-none focus:ring-2 focus:ring-terracotta-500/50">
+                    </div>
+                </div>
+
+                <!-- Book Grid -->
+                <div id="books-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Book Cards injected by JavaScript -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Annual Progress / Roadmap Section -->
+        <section id="roadmap" class="py-16 bg-warmPaper border-y border-parchment">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest block mb-2">Writing Journey</span>
+                    <h2 class="font-serif text-3xl font-bold text-warmInk">One Story Every Year</h2>
+                    <p class="text-mutedInk text-sm mt-2">Target completion: Late Summer / Early Autumn</p>
+                </div>
+
+                <!-- Timeline -->
+                <div id="timeline-container" class="relative border-l-2 border-goldAccent/40 ml-4 md:ml-32 space-y-8">
+                    <!-- Dynamic Timeline Content inserted here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-warmInk text-cream py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-warmInk/80">
+                <div>
+                    <h3 class="font-heading text-lg font-bold text-goldAccent">GEORGE TOLIS</h3>
+                    <p class="text-xs text-cream/70 mt-1">Self-published stories, personal journeys.</p>
+                </div>
+                <div class="flex items-center gap-6 text-sm text-cream/80">
+                    <a href="#about" class="hover:text-goldAccent transition-colors">Home</a>
+                    <a href="#books" class="hover:text-goldAccent transition-colors">Books</a>
+                    <a href="#roadmap" class="hover:text-goldAccent transition-colors">Progress</a>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream/50 gap-4">
+                <p>&copy; <span id="current-year"></span> George Tolis. All rights reserved.</p>
+                <p class="flex items-center gap-1">
+                    Made with <i data-lucide="heart" class="w-3.5 h-3.5 text-terracotta-500 fill-terracotta-500"></i> for personal expressions
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Book Detail Modal -->
+    <div id="book-modal" class="fixed inset-0 z-50 hidden bg-warmInk/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cream rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-parchment p-6 sm:p-8 relative custom-scrollbar">
+            <!-- Close Button -->
+            <button id="modal-close-btn" class="absolute top-4 right-4 p-2 text-mutedInk hover:text-warmInk rounded-full hover:bg-parchment/60 transition-all">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div id="modal-content">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script src="script.js"></script>
+</body>
+</html>
