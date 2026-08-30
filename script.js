@@ -50,20 +50,10 @@ const books = [
     }
 ];
 
-// Initialize Dynamic Footer Year
-document.getElementById('current-year').textContent = new Date().getFullYear();
-
-// Mobile Menu Toggle
-const mobileBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
-mobileBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-
 // Render Books Grid
 function renderBooks(booksToRender) {
     const grid = document.getElementById('books-grid');
+    if (!grid) return;
     grid.innerHTML = '';
 
     if (booksToRender.length === 0) {
@@ -150,11 +140,6 @@ function filterBooks(category) {
     }
 }
 
-// Attach filter button listeners
-document.getElementById('btn-all').addEventListener('click', () => filterBooks('all'));
-document.getElementById('btn-greek').addEventListener('click', () => filterBooks('greek'));
-document.getElementById('btn-english').addEventListener('click', () => filterBooks('english'));
-
 // Search Functionality
 function searchBooks() {
     const query = document.getElementById('search-input').value.toLowerCase();
@@ -167,11 +152,10 @@ function searchBooks() {
     renderBooks(filtered);
 }
 
-document.getElementById('search-input').addEventListener('keyup', searchBooks);
-
 // Timeline Rendering
 function renderTimeline() {
     const container = document.getElementById('timeline-container');
+    if (!container) return;
     container.innerHTML = '';
 
     books.forEach(book => {
@@ -262,14 +246,44 @@ function closeModal() {
     document.getElementById('book-modal').classList.add('hidden');
 }
 
-document.getElementById('modal-close-btn').addEventListener('click', closeModal);
-
-document.getElementById('book-modal').addEventListener('click', (e) => {
-    if (e.target.id === 'book-modal') closeModal();
-});
-
 // App Initialization
 window.addEventListener('DOMContentLoaded', () => {
+    // Dynamic Footer Year
+    const yearElem = document.getElementById('current-year');
+    if (yearElem) yearElem.textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Attach filter button listeners
+    const btnAll = document.getElementById('btn-all');
+    const btnGreek = document.getElementById('btn-greek');
+    const btnEnglish = document.getElementById('btn-english');
+    if (btnAll) btnAll.addEventListener('click', () => filterBooks('all'));
+    if (btnGreek) btnGreek.addEventListener('click', () => filterBooks('greek'));
+    if (btnEnglish) btnEnglish.addEventListener('click', () => filterBooks('english'));
+
+    // Attach search listener
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.addEventListener('keyup', searchBooks);
+
+    // Modal listeners
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const bookModal = document.getElementById('book-modal');
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (bookModal) {
+        bookModal.addEventListener('click', (e) => {
+            if (e.target.id === 'book-modal') closeModal();
+        });
+    }
+
+    // Initial renders
     renderBooks(books);
     renderTimeline();
     lucide.createIcons();
