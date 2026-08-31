@@ -45,7 +45,7 @@ const books = [
         title: 'Great Pretender',
         greekTitle: 'Ο Μέγας Υποκριτής',
         year: 2027,
-        season: 'Late Summer 2026 Target',
+        season: 'Late Summer 2027 Target',
         genre: 'Drama / Romance',
         pages: '-',
         language: 'Greek (Original)',
