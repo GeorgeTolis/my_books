@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-24">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,7 +76,6 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <button type="button" data-target="#about" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Welcome</button>
                     <button type="button" data-target="#books" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Book Collection</button>
                     <button type="button" data-target="#roadmap" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Annual Progress</button>
                     <button type="button" data-target="#translations" class="nav-link text-warmInk hover:text-terracotta-600 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-terracotta-500 bg-transparent cursor-pointer">Language Note</button>
@@ -91,7 +90,6 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-warmPaper border-b border-parchment px-4 pt-2 pb-6 space-y-3">
-            <button type="button" data-target="#about" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Welcome</button>
             <button type="button" data-target="#books" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Book Collection</button>
             <button type="button" data-target="#roadmap" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Annual Progress</button>
             <button type="button" data-target="#translations" class="nav-link block w-full text-left py-2 text-base font-medium text-warmInk hover:text-terracotta-600 bg-transparent cursor-pointer">Language Note</button>
@@ -102,7 +100,7 @@
     <main class="flex-grow">
         
         <!-- Hero & Welcome Section -->
-        <section id="about" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-cream via-warmPaper to-cream">
+        <section id="about" class="scroll-mt-20 relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-cream via-warmPaper to-cream">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-sage-100/50 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-terracotta-50/80 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -111,7 +109,7 @@
                 <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-10 md:p-12 border border-parchment shadow-xl shadow-warmInk/5 relative">
                     <div class="mt-2 mb-8">
                         <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-warmInk leading-tight">
-                            Stories Written from an Overthinker
+                            Stories of an Overthinker
                         </h1>
                         <div class="w-20 h-1 bg-terracotta-500 rounded-full mt-4"></div>
                     </div>
@@ -147,7 +145,7 @@
                 </div>
 
                 <!-- Warning Section (Non-Greek Speakers) -->
-                <div id="translations" class="mt-12 bg-warmPaper/90 rounded-2xl p-6 sm:p-8 border border-parchment shadow-sm">
+                <div id="translations" class="scroll-mt-24 mt-12 bg-warmPaper/90 rounded-2xl p-6 sm:p-8 border border-parchment shadow-sm">
                     <div class="flex items-start gap-4">
                         <div class="p-3 bg-terracotta-100 rounded-xl text-terracotta-600 flex-shrink-0 mt-1">
                             <i data-lucide="languages" class="w-6 h-6"></i>
@@ -172,7 +170,7 @@
         </section>
 
         <!-- Book Collection Section -->
-        <section id="books" class="py-16 sm:py-24 bg-cream">
+        <section id="books" class="scroll-mt-20 py-16 sm:py-24 bg-cream">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center max-w-2xl mx-auto mb-12">
@@ -211,7 +209,7 @@
         </section>
 
         <!-- Annual Progress / Roadmap Section -->
-        <section id="roadmap" class="py-16 bg-warmPaper border-y border-parchment">
+        <section id="roadmap" class="scroll-mt-20 py-16 bg-warmPaper border-y border-parchment">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest block mb-2">Writing Journey</span>
