@@ -222,11 +222,18 @@ function openModal(bookId) {
 
             <!-- Content Area -->
             <div class="space-y-4 flex-grow w-full">
-                <!-- Header (pr-10 leaves guaranteed space for absolute close X button) -->
-                <div class="pr-10">
-                    <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest">${book.season}</span>
-                    <h2 class="font-serif text-2xl font-bold text-warmInk">${book.title}</h2>
-                    <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
+                <!-- Header with Mobile Close Action -->
+                <div class="flex items-start justify-between gap-2">
+                    <div>
+                        <span class="text-xs font-semibold text-terracotta-600 uppercase tracking-widest">${book.season}</span>
+                        <h2 class="font-serif text-2xl font-bold text-warmInk">${book.title}</h2>
+                        <p class="text-sm font-serif italic text-mutedInk">${book.greekTitle}</p>
+                    </div>
+                    
+                    <!-- Mobile explicit close button -->
+                    <button onclick="closeModal()" class="md:hidden p-2 text-mutedInk hover:text-warmInk rounded-full bg-warmPaper border border-parchment flex-shrink-0" aria-label="Close modal">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
                 </div>
 
                 <!-- Specs Grid -->
@@ -290,11 +297,13 @@ function openModal(bookId) {
     `;
 
     document.getElementById('book-modal').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
     lucide.createIcons();
 }
 
 function closeModal() {
     document.getElementById('book-modal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
 }
 
 // App Initialization
