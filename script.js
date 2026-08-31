@@ -271,8 +271,8 @@ function openModal(bookId) {
                     <div class="p-3 bg-terracotta-50 text-terracotta-700 text-xs rounded-xl flex items-center gap-2 border border-terracotta-100">
                         <i data-lucide="info" class="w-4 h-4 flex-shrink-0"></i>
                         <span>${currentLanguage === 'el' 
-                            ? 'Η αγγλική μετάφραση σχεδιάζεται μόλις το επιτρέψει ο χρόνος παράλληλα με τις σπουδές και την εργασία.' 
-                            : 'English translation for this title is planned once time permits around studies and work.'}</span>
+                            ? 'Η αγγλική μετάφραση θα γίνει διαθέσιμη μόλις μου το επιτρέψει ο χρόνος παράλληλα με τις σπουδές και την εργασία μου.' 
+                            : 'English translation for this title is going to be available once time permits around studies and work.'}</span>
                     </div>
                 ` : ''}
 
